@@ -63,7 +63,7 @@ class robot:
     #        landmarks to be visible at all times
     #
     
-    ## TODO: complete the sense function
+    ##  the sense function
     def sense(self):
         ''' This function does not take in any parameters, instead it references internal variables
             (such as self.landamrks) to measure the distance between the robot and any landmarks
@@ -76,8 +76,8 @@ class robot:
            
         measurements = []
         
-        ## TODO: iterate through all of the landmarks in a world
-        ## TODO: For each landmark
+        ##  iterate through all of the landmarks in a world
+        ##  For each landmark
         for landMark in range(len(self.landmarks)):
             ## 1. compute dx and dy, the distances between the robot and the landmark
             landMark_X = self.landmarks[landMark][0]
@@ -92,10 +92,14 @@ class robot:
             ## 3. If either of the distances, dx or dy, fall outside of the internal var, measurement_range
             ##    then we cannot record them; if they do fall in the range, then add them to the measurements list
             ##    as list.append([index, dx, dy]), this format is important for data creation done later
-            if self.measurement_range == -1 or abs(dx) <= self.measurement_range and abs(dy) <= self.measurement_range:
-                measurements.append((landMark,dx,dy))
+            if (
+                self.measurement_range == -1 or 
+                abs(dx) <= self.measurement_range and
+                abs(dy) <= self.measurement_range):
+                measurements.append((landMark,dx,dy)
+              )
         
-        ## TODO: return the final, complete list of measurements
+        ##  return the final, complete list of measurements
         return measurements
 
     
